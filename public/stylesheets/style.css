@@ -1,0 +1,40 @@
+html {
+  background-color: #fff;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#drawingArea {
+  /*height: 500px;
+  width: 500px;
+  position:absolute;
+  top: 10%;
+  left:10%;
+  border:2px solid;*/
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 50px;
+  background-color: #6DD3CE;
+  border: #F7A278 1px solid;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  height: 100%;
+  width: 200px;
+  border-left: #F7A278 1px solid;
+  border-right: #F7A278 1px solid;
+  font-size: 1.5rem;
+  color: #222;
+}
