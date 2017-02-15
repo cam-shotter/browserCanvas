@@ -1,6 +1,6 @@
 <div class="navBar">
-  <div id="brushColour" class="menuItem" onclick="changeBrushColour()">
-    Colour
+  <div id="brushcolor" class="menuItem" onclick="changeBrushcolor()">
+    Color
   </div>
 
   <div id="brushSize" class="menuItem" onclick="changeBrushSize()">
@@ -11,15 +11,23 @@
     Other
   </div>
 </div>
-<div >Choose Color</div>
-<div id="green" onclick="color(this)"></div>
-<div id="blue" onclick="color(this)"></div>
-<div id="red" onclick="color(this)"></div>
-<div id="yellow" onclick="color(this)"></div>
-<div id="orange" onclick="color(this)"></div>
-<div id="black" onclick="color(this)"></div>
-<div>Eraser</div>
-<div id="white" onclick="color(this)"></div>
-<img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
-<input type="button" value="save" id="btn" size="30" onclick="save()" style="position:absolute;top:55%;left:10%;">
-<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
+
+<!-- canvas seems to need to use inline styling -->
+<canvas id="drawingArea" >
+  <img id="canvasImg">
+</canvas>
+<div >Choose color</div>
+<div id="colorSelectContainer">
+  <div id="green" class="colorSelect" onclick="color(this)"></div>
+  <div id="blue" class="colorSelect" onclick="color(this)"></div>
+  <div id="red" class="colorSelect" onclick="color(this)"></div>
+  <div id="yellow" class="colorSelect" onclick="color(this)"></div>
+  <div id="orange" class="colorSelect" onclick="color(this)"></div>
+  <div id="black" class="colorSelect" onclick="color(this)"></div>
+</div>
+  <div>Eraser</div>
+  <div id="white" class="colorSelect" onclick="color(this)"></div>
+<div>
+  <input type="button" value="save" id="btn" size="30" onclick="save()">
+  <input type="button" value="clear" id="clr" size="23" onclick="erase()">
+</div>

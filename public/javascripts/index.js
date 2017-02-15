@@ -6,7 +6,7 @@ var canvas, ctx, flag = false,
     dot_flag = false;
 
 var x = "black",
-    brushSize = 2;
+    y = 2;
 
 function init() {
   canvas = document.getElementById('drawingArea');
@@ -26,6 +26,48 @@ function init() {
   canvas.addEventListener("mouseout", function (e) {
       findxy('out', e)
   }, false);
+}
+
+function draw() {
+  ctx.beginPath();
+  ctx.moveTo(prevX, prevY);
+  ctx.lineTo(currX, currY);
+  ctx.strokeStyle = x;
+  ctx.lineWidth = y;
+  ctx.stroke();
+  ctx.closePath();
+}
+
+function findxy(res, e) {
+  if (res == 'down') {
+    prevX = currX;
+    prevY = currY;
+    currX = e.clientX - canvas.offsetLeft;
+    currY = e.clientY - canvas.offsetTop;
+    console.log(e.clientX, e.clientY)
+
+    flag = true;
+    dot_flag = true;
+    if (dot_flag) {
+        ctx.beginPath();
+        ctx.fillStyle = x;
+        ctx.fillRect(currX, currY, 2, 2);
+        ctx.closePath();
+        dot_flag = false;
+    }
+  }
+  if (res == 'up' || res == "out") {
+    flag = false;
+  }
+  if (res == 'move') {
+    if (flag) {
+        prevX = currX;
+        prevY = currY;
+        currX = e.clientX - canvas.offsetLeft;
+        currY = e.clientY - canvas.offsetTop;
+        draw();
+    }
+  }
 }
 
 function color(obj) {
@@ -54,45 +96,4 @@ function color(obj) {
   }
   if (x == "white") y = 14;
   else y = 2;
-}
-
-function draw() {
-  ctx.beginPath();
-  ctx.moveTo(prevX, prevY);
-  ctx.lineTo(currX, currY);
-  ctx.strokeStyle = x;
-  ctx.lineWidth = brushSize;
-  ctx.stroke();
-  ctx.closePath();
-}
-
-function findxy(res, e) {
-  if (res == 'down') {
-    prevX = currX;
-    prevY = currY;
-    currX = e.clientX - canvas.offsetLeft;
-    currY = e.clientY - canvas.offsetTop;
-
-    flag = true;
-    dot_flag = true;
-    if (dot_flag) {
-        ctx.beginPath();
-        ctx.fillStyle = x;
-        ctx.fillRect(currX, currY, 2, 2);
-        ctx.closePath();
-        dot_flag = false;
-    }
-  }
-  if (res == 'up' || res == "out") {
-    flag = false;
-  }
-  if (res == 'move') {
-    if (flag) {
-        prevX = currX;
-        prevY = currY;
-        currX = e.clientX - canvas.offsetLeft;
-        currY = e.clientY - canvas.offsetTop;
-        draw();
-    }
-  }
 }

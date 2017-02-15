@@ -1,5 +1,6 @@
 html {
-  background-color: #E2E8DC;
+  /*background-color: #E2E8DC;*/
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHUlEQVQoU2NkYGCQZCACMEIVPiekdlQh3hAiOngAIvwJJE/zp7YAAAAASUVORK5CYII=) repeat;
 }
 
 body {
@@ -7,59 +8,75 @@ body {
   flex-direction: column;
 }
 
+canvas {
+
+  height: 400px;
+  width: 400px;
+  border: 2px solid;
+}
+
 #drawingArea {
-  /*height: 500px;
-  width: 500px;
-  position:absolute;
-  top: 10%;
-  left:10%;
-  border:2px solid;*/
+  /*display: flex;*/
+  /*height: 150px;
+  width: 300px;
+  position:relative;*/
+  /*top: 10%;
+  left:10%;*/
+  /*border:2px solid;*/
+}
+
+#canvasImg {
+  display: none;
+}
+
+#colorSelectContainer {
+  display: flex;
+  flex-direction: row;
+
 }
 
 #green {
-  height: 15px;
-  width: 15px;
   background-color: green;
 }
 
 #blue {
-  height: 15px;
-  width: 15px;
   background-color: blue;
 }
 
 #red {
-  height: 15px;
-  width: 15px;
   background-color: red;
 }
 
 #yellow {
-  height: 15px;
-  width: 15px;
   background-color: yellow;
 }
 
 #orange {
-  height: 15px;
-  width: 15px;
   background-color: orange;
 }
 
 #black {
+  background-color: black;
+}
+
+#white {
+  background-color: white;
+  border: 1px black solid;
+}
+
+.colorSelect {
   height: 15px;
   width: 15px;
-  background-color: black;
 }
 
 .navBar {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   height: 50px;
   background-color: #080708;
-  border: #FFCF56 2px solid;
+  /*border: #FFCF56 2px solid;*/
 }
 
 .menuItem {
@@ -69,8 +86,7 @@ body {
   background-color: inherit;
   height: 100%;
   width: 200px;
-  border-left: #FFCF56 2px solid;
-  border-right: #FFCF56 2px solid;
+  border: #FFCF56 2px solid;
   font-size: 1.5rem;
   color: #FFCF56;
 }
