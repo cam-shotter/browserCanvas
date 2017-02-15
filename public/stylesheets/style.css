@@ -80,7 +80,7 @@ body {
   color: #FFCF56;
 }
 
-.canvasContainer {
+#canvasContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
