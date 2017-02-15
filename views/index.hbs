@@ -12,10 +12,13 @@
   </div>
 </div>
 
-<!-- canvas seems to need to use inline styling -->
-<canvas id="drawingArea" >
-  <img id="canvasImg">
-</canvas>
+<div id="canvasContainer">
+  <!-- canvas needs to use inline width and height props -->
+  <canvas id="drawingArea" width="800" height="600">
+    <img id="canvasImg">
+  </canvas>
+</div>
+
 <div >Choose color</div>
 <div id="colorSelectContainer">
   <div id="green" class="colorSelect" onclick="color(this)"></div>

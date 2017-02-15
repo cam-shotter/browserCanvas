@@ -8,21 +8,12 @@ body {
   flex-direction: column;
 }
 
-canvas {
-
-  height: 400px;
-  width: 400px;
-  border: 2px solid;
-}
 
 #drawingArea {
-  /*display: flex;*/
-  /*height: 150px;
-  width: 300px;
-  position:relative;*/
-  /*top: 10%;
-  left:10%;*/
-  /*border:2px solid;*/
+  display: flex;
+  height: 600px;
+  width: 800px;
+  border: 2px solid;
 }
 
 #canvasImg {
@@ -32,7 +23,6 @@ canvas {
 #colorSelectContainer {
   display: flex;
   flex-direction: row;
-
 }
 
 #green {
@@ -76,7 +66,6 @@ canvas {
   justify-content: center;
   height: 50px;
   background-color: #080708;
-  /*border: #FFCF56 2px solid;*/
 }
 
 .menuItem {
@@ -89,4 +78,10 @@ canvas {
   border: #FFCF56 2px solid;
   font-size: 1.5rem;
   color: #FFCF56;
+}
+
+.canvasContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
