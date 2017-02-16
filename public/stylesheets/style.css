@@ -9,13 +9,17 @@ body {
   margin: 0;
 }
 
+input {
+  border: none;
+  padding: 0;
+  user-select: none;
+}
+
 #drawingArea {
   display: flex;
-  height: 600px;
-  width: 800px;
-  border: 2px solid;
+  height: auto;
+  width: auto;
   cursor: crosshair;
-  margin: 20px;
 }
 
 #canvasImg {
@@ -34,13 +38,10 @@ body {
 
 .navBar {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 75px;
   background-color: #2E2F35;
-  margin-bottom: 8px;
-  border: #FFCF56 1px solid;
 }
 
 .menuItem {
@@ -61,8 +62,8 @@ body {
 }
 
 .menuItem .dropDownContent {
-  height: inherit;
-  width: inherit;
+  height: 45%;
+  width: 90%;
 }
 
 .menuItem:hover .dropDownContent {

@@ -11,8 +11,8 @@ var x = "black",
 function init() {
   canvas = document.getElementById('drawingArea');
   ctx = canvas.getContext("2d");
-  w = canvas.width;
-  h = canvas.height;
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight - 77;
 
   canvas.addEventListener("mousemove", function (e) {
       findxy('move', e)
@@ -73,15 +73,7 @@ function findxy(res, e) {
 
 function selectBrushColor() {
   x = document.getElementById("colorWheel").value
-}
-
-function color(obj) {
-  switch (obj.id) {
-    case "white":
-        x = "white";
-        break;
-  }
-  if (x == "white") y = 14;
+  if (x == "#ffffff") y = 14;
   else y = 2;
 }
 
