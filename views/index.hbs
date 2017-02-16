@@ -1,29 +1,35 @@
 <div class="navBar">
-  <div id="brushcolor" class="menuItem" onclick="changeBrushcolor()">
-    Color
-  </div>
-
-  <div id="brushSize" class="menuItem" onclick="changeBrushSize()">
-    Size
+  <div class="menuItem">
+    <div class="menuLabel">
+      Brush Color
+    </div>
+    <input id="colorWheel" class="dropDownContent" type="color" onchange="selectBrushColor()" />
   </div>
 
   <div class="menuItem">
-    Other
+    <div class="menuLabel">
+      Brush Size
+    </div>
+  </div>
+
+  <div class="menuItem">
+    <div class="menuLabel">
+      Brush Type
+    </div>
+    <input class="dropDownContent" id="white" type="button" onclick="color(this)">
+  </div>
+
+  <div class="menuItem" id="btn" onclick="save()">
+    Save
+  </div>
+
+  <div class="menuItem"id="clr" onclick="erase()">
+    Clear
   </div>
 </div>
 
 <div id="canvasContainer">
-  <!-- canvas needs to use inline width and height props -->
   <canvas id="drawingArea" width="800" height="600">
     <img id="canvasImg">
   </canvas>
-</div>
-
-<div >Choose color</div>
-<input id="colorWheel" type="color" value="#000000" onchange="selectColor()" />
-  <div>Eraser</div>
-  <div id="white" class="colorSelect" onclick="color(this)"></div>
-<div>
-  <input type="button" value="save" id="btn" size="30" onclick="save()">
-  <input type="button" value="clear" id="clr" size="23" onclick="erase()">
 </div>

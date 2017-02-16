@@ -1,52 +1,25 @@
 html {
-  /*background-color: #E2E8DC;*/
+  /*background-color: #FFF;*/
   background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHUlEQVQoU2NkYGCQZCACMEIVPiekdlQh3hAiOngAIvwJJE/zp7YAAAAASUVORK5CYII=) repeat;
 }
 
 body {
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
-
 
 #drawingArea {
   display: flex;
   height: 600px;
   width: 800px;
   border: 2px solid;
+  cursor: crosshair;
+  margin: 20px;
 }
 
 #canvasImg {
   display: none;
-}
-
-#colorSelectContainer {
-  display: flex;
-  flex-direction: row;
-}
-
-#green {
-  background-color: green;
-}
-
-#blue {
-  background-color: blue;
-}
-
-#red {
-  background-color: red;
-}
-
-#yellow {
-  background-color: yellow;
-}
-
-#orange {
-  background-color: orange;
-}
-
-#black {
-  background-color: black;
 }
 
 #white {
@@ -64,24 +37,39 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  background-color: #080708;
+  height: 75px;
+  background-color: #2E2F35;
+  margin-bottom: 8px;
+  border: #FFCF56 1px solid;
 }
 
 .menuItem {
-  display: flex;
+  display: inline-flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: inherit;
   height: 100%;
   width: 200px;
-  border: #FFCF56 2px solid;
+  border: #FFCF56 1px solid;
   font-size: 1.5rem;
   color: #FFCF56;
 }
 
+.menuLabel {
+  padding: 4px 0;
+}
+
+.menuItem .dropDownContent {
+  height: inherit;
+  width: inherit;
+}
+
+.menuItem:hover .dropDownContent {
+  display: block;
+}
+
 #canvasContainer {
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }

@@ -71,7 +71,7 @@ function findxy(res, e) {
   }
 }
 
-function selectColor() {
+function selectBrushColor() {
   x = document.getElementById("colorWheel").value
 }
 
@@ -83,4 +83,8 @@ function color(obj) {
   }
   if (x == "white") y = 14;
   else y = 2;
+}
+
+function selectBrushSize() {
+
 }
