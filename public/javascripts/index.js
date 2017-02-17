@@ -92,40 +92,33 @@ function selectBrushSize() {
 
 }
 
+function changeDisplay(obj) {
+  if (obj.style.display == "") {
+    obj.style.display = "flex";
+  } else {
+    obj.style.display = "";
+  }
+}
+
+function changeColorDisplay() {
+  var dropDown = document.getElementById("colorWheel")
+  changeDisplay(dropDown)
+}
+
+function changeSizeDisplay() {
+  var dropDown = document.getElementById("brushSize")
+  changeDisplay(dropDown)
+}
+
+function changeTypeDisplay() {
+  var dropDown = document.getElementById("brushType")
+  changeDisplay(dropDown)
+}
+
 function save() {
   console.log("Canvas saved!")
 }
 
 function clear() {
   console.log("Canvas cleared!")
-}
-
-function changeColorDisplay() {
-  var dropDown = document.getElementById("colorWheel")
-
-  if (dropDown.style.display == "") {
-    dropDown.style.display = "flex";
-  } else {
-    dropDown.style.display = "";
-  }
-}
-
-function changeSizeDisplay() {
-  var dropDown = document.getElementById("brushSize")
-
-  if (dropDown.style.display == "") {
-    dropDown.style.display = "flex";
-  } else {
-    dropDown.style.display = "";
-  }
-}
-
-function changeTypeDisplay() {
-  var dropDown = document.getElementById("brushType")
-
-  if (dropDown.style.display == "") {
-    dropDown.style.display = "flex";
-  } else {
-    dropDown.style.display = "";
-  }
 }
