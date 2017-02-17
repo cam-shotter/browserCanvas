@@ -89,6 +89,7 @@ function selectBrushColor() {
 
 function selectBrushSize() {
   console.log("brushSize changed");
+
 }
 
 function save() {
@@ -101,6 +102,26 @@ function clear() {
 
 function changeColorDisplay() {
   var dropDown = document.getElementById("colorWheel")
+
+  if (dropDown.style.display == "") {
+    dropDown.style.display = "flex";
+  } else {
+    dropDown.style.display = "";
+  }
+}
+
+function changeSizeDisplay() {
+  var dropDown = document.getElementById("brushSize")
+
+  if (dropDown.style.display == "") {
+    dropDown.style.display = "flex";
+  } else {
+    dropDown.style.display = "";
+  }
+}
+
+function changeTypeDisplay() {
+  var dropDown = document.getElementById("brushType")
 
   if (dropDown.style.display == "") {
     dropDown.style.display = "flex";
