@@ -1,30 +1,35 @@
 <div class="navBar">
-  <div class="menuItem">
-    <div class="menuLabel">
+  <div class="menuItemContainer">
+    <button class="menuItem" onclick="changeColorDisplay()">
       Brush Color
-    </div>
+    </button>
     <input id="colorWheel" class="dropDownContent" type="color" onchange="selectBrushColor()" />
   </div>
 
-  <div class="menuItem">
-    <div class="menuLabel">
-      Brush Size
-    </div>
+  <div class="menuItemContainer">
+    <button class="menuItem" onclick="changeSizeDisplay()">
+        Brush Size
+      <!-- <button class="dropDownContent"></button> -->
+    </button>
   </div>
 
-  <div class="menuItem">
-    <div class="menuLabel">
+  <div class="menuItemContainer">
+    <button class="menuItem" onclick="changeTypeDisplay()">
       Brush Type
-    </div>
-    <input class="dropDownContent" id="white" >
+      <!-- <button class="dropDownContent" id="white"></button> -->
+    </button>
   </div>
 
-  <div class="menuItem" id="btn" onclick="save()">
-    Save
+  <div class="menuItemContainer">
+    <button class="menuItem" id="save" onclick="save()">
+      Save
+    </button>
   </div>
 
-  <div class="menuItem"id="clr" onclick="erase()">
-    Clear
+  <div class="menuItemContainer">
+    <button class="menuItem" id="clear" onclick="clear()">
+      Clear
+    </button>
   </div>
 </div>
 

@@ -28,16 +28,6 @@ function init() {
   }, false);
 }
 
-function draw() {
-  ctx.beginPath();
-  ctx.moveTo(prevX, prevY);
-  ctx.lineTo(currX, currY);
-  ctx.strokeStyle = x;
-  ctx.lineWidth = y;
-  ctx.stroke();
-  ctx.closePath();
-}
-
 function findxy(res, e) {
   if (res == 'down') {
     prevX = currX;
@@ -52,7 +42,7 @@ function findxy(res, e) {
     if (dot_flag) {
         ctx.beginPath();
         ctx.fillStyle = x;
-        ctx.fillRect(currX, currY, 2, 2);
+        ctx.arc(currX, currY, y, 0, 2 * Math.PI, false);
         ctx.closePath();
         dot_flag = false;
     }
@@ -71,6 +61,26 @@ function findxy(res, e) {
   }
 }
 
+function draw() {
+  if (y < 6) {
+    ctx.beginPath();
+    ctx.moveTo(prevX, prevY);
+    ctx.lineTo(currX, currY);
+    ctx.strokeStyle = x;
+    ctx.lineWidth = y;
+    ctx.stroke();
+    ctx.closePath();
+  } else {
+    ctx.beginPath();
+    ctx.arc(currX, currY, y, 0, 2 * Math.PI, false);
+    ctx.fillStyle = x;
+    ctx.fill();
+    ctx.strokeStyle = x;
+    ctx.stroke();
+    ctx.closePath();
+  }
+}
+
 function selectBrushColor() {
   x = document.getElementById("colorWheel").value
   if (x == "#ffffff") y = 14;
@@ -78,5 +88,23 @@ function selectBrushColor() {
 }
 
 function selectBrushSize() {
+  console.log("brushSize changed");
+}
 
+function save() {
+  console.log("Canvas saved!")
+}
+
+function clear() {
+  console.log("Canvas cleared!")
+}
+
+function changeColorDisplay() {
+  var dropDown = document.getElementById("colorWheel")
+
+  if (dropDown.style.display == "") {
+    dropDown.style.display = "flex";
+  } else {
+    dropDown.style.display = "";
+  }
 }
