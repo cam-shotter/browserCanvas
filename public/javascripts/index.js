@@ -62,7 +62,7 @@ function findxy(res, e) {
 }
 
 function draw() {
-  if (y < 6) {
+  if (y <= 8) {
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currX, currY);
@@ -72,7 +72,7 @@ function draw() {
     ctx.closePath();
   } else {
     ctx.beginPath();
-    ctx.arc(currX, currY, y, 0, 2 * Math.PI, false);
+    ctx.arc(currX, currY, y/2, 0, 2 * Math.PI, false);
     ctx.fillStyle = x;
     ctx.fill();
     ctx.strokeStyle = x;
@@ -83,8 +83,6 @@ function draw() {
 
 function selectBrushColor() {
   x = document.getElementById("colorWheel").value
-  if (x == "#ffffff") y = 14;
-  else y = 2;
 }
 
 function selectBrushSize(obj) {
