@@ -87,9 +87,8 @@ function selectBrushColor() {
   else y = 2;
 }
 
-function selectBrushSize() {
-  console.log("brushSize changed");
-
+function selectBrushSize(obj) {
+  y = parseInt(obj.innerHTML);
 }
 
 function changeDisplay(obj) {
