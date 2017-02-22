@@ -34,7 +34,6 @@ function findxy(res, e) {
     prevY = currY;
     currX = e.clientX - canvas.offsetLeft;
     currY = e.clientY - canvas.offsetTop;
-    console.log(e)
 
 
     flag = true;
@@ -42,7 +41,7 @@ function findxy(res, e) {
     if (dot_flag) {
         ctx.beginPath();
         ctx.fillStyle = x;
-        ctx.arc(currX, currY, y, 0, 2 * Math.PI, false);
+        ctx.fillRect(currX, currY, y, y);
         ctx.closePath();
         dot_flag = false;
     }
@@ -62,7 +61,7 @@ function findxy(res, e) {
 }
 
 function draw() {
-  if (y <= 8) {
+  // if (y <= 8) {
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currX, currY);
@@ -70,15 +69,15 @@ function draw() {
     ctx.lineWidth = y;
     ctx.stroke();
     ctx.closePath();
-  } else {
-    ctx.beginPath();
-    ctx.arc(currX, currY, y/2, 0, 2 * Math.PI, false);
-    ctx.fillStyle = x;
-    ctx.fill();
-    ctx.strokeStyle = x;
-    ctx.stroke();
-    ctx.closePath();
-  }
+  // } else {
+  //   ctx.beginPath();
+  //   ctx.arc(currX, currY, y/2, 0, 2 * Math.PI, false);
+  //   ctx.fillStyle = x;
+  //   ctx.fill();
+  //   ctx.strokeStyle = x;
+  //   ctx.stroke();
+  //   ctx.closePath();
+  // }
 }
 
 function selectBrushColor() {
