@@ -1,9 +1,8 @@
-var canvas, ctx, flag = false,
+var canvas, ctx, isDrawing = false,
     prevX = 0,
     currX = 0,
     prevY = 0,
     currY = 0,
-    dot_flag = false;
 
 var x = "black",
     y = 2;
@@ -34,21 +33,13 @@ function findxy(res, e) {
     prevY = currY;
     currX = e.clientX - canvas.offsetLeft;
     currY = e.clientY - canvas.offsetTop;
-    flag = true;
-    dot_flag = true;
-    if (dot_flag) {
-        ctx.beginPath();
-        ctx.fillStyle = x;
-        ctx.arc(currX, currY, y, 0, 2 * Math.PI, false);
-        ctx.closePath();
-        dot_flag = false;
-    }
+    isDrawing = true;
   }
   if (res == 'up' || res == "out") {
-    flag = false;
+    isDrawing = false;
   }
   if (res == 'move') {
-    if (flag) {
+    if (isDrawing) {
         prevX = currX;
         prevY = currY;
         currX = e.clientX - canvas.offsetLeft;
