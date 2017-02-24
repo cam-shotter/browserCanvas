@@ -1,8 +1,10 @@
-var canvas, ctx, isDrawing = false,
+var canvas,
+    ctx,
+    isDrawing = false,
     prevX = 0,
     currX = 0,
     prevY = 0,
-    currY = 0
+    currY = 0;
 
 var x = "black",
     y = 2;
@@ -13,40 +15,26 @@ function init() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight - 77;
 
-  canvas.addEventListener("mousemove", function (e) {
-      findxy('move', e)
-  }, false);
-  canvas.addEventListener("mousedown", function (e) {
-      findxy('down', e)
-  }, false);
-  canvas.addEventListener("mouseup", function (e) {
-      findxy('up', e)
-  }, false);
-  canvas.addEventListener("mouseout", function (e) {
-      findxy('out', e)
-  }, false);
-}
-
-function findxy(res, e) {
-  if (res == 'down') {
-    prevX = currX;
-    prevY = currY;
-    currX = e.clientX - canvas.offsetLeft;
-    currY = e.clientY - canvas.offsetTop;
+  canvas.onmousedown = function(e) {
+    getMouseCoordinates(e)
     isDrawing = true;
   }
-  if (res == 'up' || res == "out") {
+  canvas.onmouseup = function(e) {
     isDrawing = false;
   }
-  if (res == 'move') {
+  canvas.onmousemove = function(e) {
     if (isDrawing) {
-        prevX = currX;
-        prevY = currY;
-        currX = e.clientX - canvas.offsetLeft;
-        currY = e.clientY - canvas.offsetTop;
+        getMouseCoordinates(e)
         draw();
     }
   }
+}
+
+function getMouseCoordinates(e) {
+  prevX = currX;
+  prevY = currY;
+  currX = e.clientX - canvas.offsetLeft;
+  currY = e.clientY - canvas.offsetTop;
 }
 
 function draw() {
