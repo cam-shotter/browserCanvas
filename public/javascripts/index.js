@@ -80,6 +80,10 @@ function selectBrushSize(obj) {
   y = parseInt(obj.innerHTML);
 }
 
+function selectBrushType(obj) {
+  console.log(obj.innerHTML + " is selected");
+}
+
 function changeDisplay(obj) {
   if (obj.style.display == "") {
     obj.style.display = "flex";
