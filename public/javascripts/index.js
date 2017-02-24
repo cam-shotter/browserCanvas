@@ -34,9 +34,6 @@ function findxy(res, e) {
     prevY = currY;
     currX = e.clientX - canvas.offsetLeft;
     currY = e.clientY - canvas.offsetTop;
-    console.log(e)
-
-
     flag = true;
     dot_flag = true;
     if (dot_flag) {
