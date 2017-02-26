@@ -9,6 +9,8 @@ var canvas,
 var x = "black",
     y = 2;
 
+var brushType = "Pencil";
+
 function init() {
   canvas = document.getElementById('drawingArea');
   ctx = canvas.getContext("2d");
@@ -58,6 +60,7 @@ function selectBrushSize(obj) {
 
 function selectBrushType(obj) {
   console.log(obj.innerHTML + " is selected");
+  brushType = obj.innerHTML;
 }
 
 function changeDisplay(obj) {
