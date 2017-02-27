@@ -39,13 +39,33 @@ function getMouseCoordinates(e) {
   currY = e.clientY - canvas.offsetTop;
 }
 
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function draw() {
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currX, currY);
     ctx.lineJoin = ctx.lineCap = "round";
-    ctx.strokeStyle = x;
-    ctx.lineWidth = y;
+    if(brushType == "Pencil") {
+      ctx.strokeStyle = x;
+      ctx.lineWidth = y;
+    } else if (brushType == "Spray Paint") {
+      ctx.strokeStyle = ctx.shadowColor = x;
+      ctx.lineWidth = ctx.shadowBlur = y;
+    } else if (brushType == "Highlighter") {
+
+    } else if (brushType == "Pen") {
+      ctx.strokeStyle = x;
+      ctx.lineWidth = getRandomInt(y-1, y+1);
+    } else if (brushType == "Pixels") {
+
+    } else if (brushType == "Blur") {
+
+    } else if (brushType == "Eraser") {
+
+    }
     ctx.stroke();
     ctx.closePath();
 }
@@ -59,8 +79,7 @@ function selectBrushSize(obj) {
 }
 
 function selectBrushType(obj) {
-  console.log(obj.innerHTML + " is selected");
-  brushType = obj.innerHTML;
+  brushType = obj.innerText;
 }
 
 function changeDisplay(obj) {
