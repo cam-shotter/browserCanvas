@@ -75,7 +75,9 @@ function draw() {
     } else if (brushType == "Blur") {
 
     } else if (brushType == "Eraser") {
-
+      ctx.strokeStyle = "#FFFFFF";
+      ctx.lineWidth = y;
+      ctx.stroke();
     }
     ctx.closePath();
 }
@@ -93,7 +95,7 @@ function selectBrushType(obj) {
 }
 
 function changeDisplay(obj) {
-  if (obj.style.display == "") {
+  if (obj.style.display !== "flex") {
     obj.style.display = "flex";
   } else {
     obj.style.display = "";
