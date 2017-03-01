@@ -77,14 +77,7 @@ function draw() {
     } else if (brushType == "Blur") {
 
     } else if (brushType == "Eraser") {
-      // var img = new Image;
-      // img.onload = function() {
-      //   ctx.strokeStyle = getPattern();
-      // };
-      // img.src = 'image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHUlEQVQoU2NkYGCQZCACMEIVPiekdlQh3hAiOngAIvwJJE/zp7YAAAAASUVORK5CYII=';
-      ctx.strokeStyle = "#FFFFFF";
-      ctx.lineWidth = y;
-      ctx.stroke();
+      ctx.clearRect(currX, currY, y, y);
     }
     ctx.closePath();
 }
