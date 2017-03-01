@@ -80,10 +80,6 @@ function draw() {
     ctx.closePath();
 }
 
-function getPattern() {
-  return ctx.createPattern(img, 'repeat');
-}
-
 function selectBrushColor() {
   x = document.getElementById("colorWheel").value
 }
