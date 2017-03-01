@@ -59,8 +59,6 @@ function draw() {
       ctx.strokeStyle = ctx.shadowColor = x;
       ctx.lineWidth = ctx.shadowBlur = y;
       ctx.stroke();
-    } else if (brushType == "Highlighter") {
-      ctx.stroke();
     } else if (brushType == "Pen") {
       ctx.strokeStyle = x;
       ctx.lineWidth = getRandomInt(y-1, y+1);
