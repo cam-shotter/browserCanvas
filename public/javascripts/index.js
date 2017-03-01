@@ -17,6 +17,8 @@ function init() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight - 77;
 
+
+
   canvas.onmousedown = function(e) {
     getMouseCoordinates(e)
     isDrawing = true;
@@ -75,11 +77,20 @@ function draw() {
     } else if (brushType == "Blur") {
 
     } else if (brushType == "Eraser") {
+      // var img = new Image;
+      // img.onload = function() {
+      //   ctx.strokeStyle = getPattern();
+      // };
+      // img.src = 'image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHUlEQVQoU2NkYGCQZCACMEIVPiekdlQh3hAiOngAIvwJJE/zp7YAAAAASUVORK5CYII=';
       ctx.strokeStyle = "#FFFFFF";
       ctx.lineWidth = y;
       ctx.stroke();
     }
     ctx.closePath();
+}
+
+function getPattern() {
+  return ctx.createPattern(img, 'repeat');
 }
 
 function selectBrushColor() {
