@@ -72,6 +72,12 @@
   </div>
 
   <div class="menuItemContainer">
+    <button id="load" class="menuItem" onclick="load()">
+      Load
+    </button>
+  </div>
+
+  <div class="menuItemContainer">
     <button id="clear" class="menuItem" onclick="clear()">
       Clear
     </button>
@@ -79,7 +85,7 @@
 </div>
 
 <div id="canvasContainer">
-  <canvas id="drawingArea" width="800" height="600">
+  <canvas id="drawingArea" width="800" height="600" onresize="resizeCanvas()">
     <img id="canvasImg">
   </canvas>
 </div>

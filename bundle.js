@@ -1,46 +1,4 @@
-var canvas,
-    ctx,
-    isDrawing = false,
-    prevX = 0,
-    currX = 0,
-    prevY = 0,
-    currY = 0;
-
-var x = "black",
-    y = 2;
-
-var brushType = "Pencil";
-
-function init() {
-  canvas = document.getElementById('drawingArea');
-  ctx = canvas.getContext("2d");
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight - 77;
-
-
-
-  canvas.onmousedown = function(e) {
-    getMouseCoordinates(e)
-    isDrawing = true;
-  }
-  canvas.onmouseup = function(e) {
-    isDrawing = false;
-  }
-  canvas.onmousemove = function(e) {
-    if (isDrawing) {
-        getMouseCoordinates(e)
-        draw();
-    }
-  }
-}
-
-function getMouseCoordinates(e) {
-  prevX = currX;
-  prevY = currY;
-  currX = e.clientX - canvas.offsetLeft;
-  currY = e.clientY - canvas.offsetTop;
-}
-
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -80,6 +38,68 @@ function draw() {
     ctx.closePath();
 }
 
+module.exports = {
+  draw: draw(),
+  getRandomInt: getRandomInt()
+}
+
+},{}],2:[function(require,module,exports){
+var brushStyles = require("./brushStyles.js");
+
+var canvas,
+    ctx,
+    isDrawing = false,
+    prevX = 0,
+    currX = 0,
+    prevY = 0,
+    currY = 0;
+
+var x = "black",
+    y = 2;
+
+var brushType = "Pencil";
+
+var savedDrawing
+
+function init() {
+  canvas = document.getElementById('drawingArea');
+
+  if (canvas.getContext) {
+          ctx = canvas.getContext("2d");
+
+          window.addEventListener('resize', resizeCanvas, true);
+          window.addEventListener('orientationchange', resizeCanvas, true);
+          resizeCanvas();
+        }
+
+  canvas.onmousedown = function(e) {
+    getMouseCoordinates(e)
+    isDrawing = true;
+  }
+  canvas.onmouseup = function(e) {
+    isDrawing = false;
+  }
+  canvas.onmousemove = function(e) {
+    if (isDrawing) {
+        getMouseCoordinates(e)
+        brushStyles.draw();
+    }
+  }
+}
+
+function resizeCanvas() {
+  save()
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight - 77;
+}
+
+function getMouseCoordinates(e) {
+  prevX = currX;
+  prevY = currY;
+  currX = e.clientX - canvas.offsetLeft;
+  currY = e.clientY - canvas.offsetTop;
+}
+
 function selectBrushColor() {
   x = document.getElementById("colorWheel").value
 }
@@ -117,8 +137,15 @@ function changeTypeDisplay() {
 
 function save() {
   console.log("Canvas saved!")
+  var savedState = canvas.toDataURL()
+}
+
+function load() {
+  console.log("Canvas loaded!");
 }
 
 function clear() {
   console.log("Canvas cleared!")
 }
+
+},{"./brushStyles.js":1}]},{},[2]);

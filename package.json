@@ -4,7 +4,10 @@
 	"private": true,
 	"scripts": {
 		"start": "node ./bin/www",
-		"start:dev": "nodemon ./bin/www"
+		"start:dev": "nodemon ./bin/www",
+		"start:watch": "npm run watch & npm run start:dev",
+		"bundle": "browserify ./public/javascripts/main.js -o ./public/javascripts/bundle.js -d",
+		"watch": "watchify ./public/javascripts/main.js -o ./public/javascripts/bundle.js -d"
 	},
 	"dependencies": {
 		"body-parser": "~1.15.1",
@@ -15,5 +18,9 @@
 		"morgan": "~1.7.0",
 		"nodemon": "^1.11.0",
 		"serve-favicon": "~2.3.0"
+	},
+	"devDependencies": {
+		"browserify": "^14.1.0",
+		"watchify": "^3.9.0"
 	}
 }
