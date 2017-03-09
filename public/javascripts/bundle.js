@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module '/Users/cameronshotter/Documents/Projects/JavaScript/browserBoard/public/javascripts/main.js' from '/Users/cameronshotter/Documents/Projects/JavaScript/browserBoard'");
