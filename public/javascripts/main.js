@@ -15,8 +15,12 @@ var brushType = "Pencil";
 
 var savedDrawing
 
+document.addEventListener("DOMontentLoaded", init)
+
 function init() {
   canvas = document.getElementById('drawingArea');
+
+  console.log("brushstyles",brushStyles);
 
   if (canvas.getContext) {
           ctx = canvas.getContext("2d");

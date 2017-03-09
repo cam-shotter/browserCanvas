@@ -1,8 +1,12 @@
+// var canvas
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function draw(ctx) {
+  // console.log("canvas", canvas);
+  // console.log("ctx", ctx);
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currX, currY);
