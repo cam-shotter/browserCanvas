@@ -18,13 +18,9 @@ var savedDrawing
 function init() {
   canvas = document.getElementById('drawingArea');
 
-  console.log("brushstyles",brushStyles);
-
   if (canvas.getContext) {
           ctx = canvas.getContext("2d");
 
-          window.addEventListener('resize', resizeCanvas, true);
-          window.addEventListener('orientationchange', resizeCanvas, true);
           resizeCanvas();
         }
 
@@ -41,6 +37,9 @@ function init() {
         brushStyles.draw(ctx);
     }
   }
+  // canvas.onmouseout = function(e) {
+  //   isDrawing = false;
+  // }
 }
 
 function resizeCanvas() {
